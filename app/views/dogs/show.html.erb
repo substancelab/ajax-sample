@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<article>
+  <h1><%= @dog.name %></h1>
+
+  <p>
+    <strong>Age:</strong>
+    <%= @dog.age %>
+  </p>
+
+  <p><%= simple_format(@dog.description) %></p>
+</article>
+
+<%= link_to 'Edit', edit_dog_path(@dog) %> |
+<%= link_to 'Back', dogs_path %>

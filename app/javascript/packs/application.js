@@ -12,7 +12,17 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+document.addEventListener('ajax:success', function (event) {
+  var detail = event.detail
+  var doc = detail[0]
+
+  var content = doc.querySelector('body')
+  var target = document.getElementById('dog_details')
+  target.innerHTML = content.innerHTML
+})
+
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('Loaded')
   var ajaxLinks = document.querySelectorAll('a[data-ajax]')
   for (let link of ajaxLinks) {
     link.addEventListener('click', function (event) {
